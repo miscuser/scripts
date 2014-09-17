@@ -12,7 +12,7 @@ echo "Backup starting..." >> $log
 
 # Documents folder 
 echo "Finance files..." >> $log
-rsync -avhO --log-file="$log" ~/Documents/ /media/backup/Documents/ #--dry-run
+rsync -avhO --log-file="$log" ~/Documents/ /media/backup/home/Documents/ #--dry-run
 
 # Language files 
 echo "Language files..." >> $log
@@ -22,7 +22,12 @@ rsync -avhO --log-file="$log" ~/Language/ /media/backup/language/ #--dry-run
 echo "Stacey's files..." >> $log
 rsync -avhO --log-file="$log" ~/Stacey\_documents/ /media/backup/Stacey\_documents/ #--dry-run
 
-
+# Get some of the .dirs too
+echo "Dot directories..." >> $log
+rsync -avhO --log-file="$log" ~/.fonts/ /media/backup/home/.fonts #--dry-run
+rsync -avhO --log-file="$log" ~/.themes/ /media/backup/home/.themes #--dry-run
+rsync -avhO --log-file="$log" ~/.icons/ /media/backup/home/.icons #--dry-run
+rsync -avhO --log-file="$log" ~/.ssh/ /media/backup/home/.ssh #--dry-run
 
 ##### Files stored on external drive
 
