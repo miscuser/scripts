@@ -17,7 +17,7 @@ if [[ -d "$PASSED" ]]; then
     avconv -i "$INPUT" -threads auto -vn -qscale:a 0 "$OUTDIR/$xpref.mp3"
     done
     rm $VAR                       # Remove text file with filenames
-elif [[ -f $PASSED ]]; then
+elif [[ -f "$PASSED" ]]; then
     xpath=${PASSED%/*} 
     xbase=${PASSED##*/}
     xfext=${xbase##*.}
