@@ -17,14 +17,14 @@ if [[ -d "$PASSED" ]]; then
     avconv -i "$INPUT" -threads auto -vn -qscale:a 0 "$OUTDIR/$xpref.mp3"
     done
     rm $VAR                       # Remove text file with filenames
-elif [[ -f "$PASSED" ]]; then
+elif [[ -f $PASSED ]]; then
     xpath=${PASSED%/*} 
     xbase=${PASSED##*/}
     xfext=${xbase##*.}
     xpref=${xbase%.*}
-    avconv -i "$PASSED" -threads auto -vn -qscale:a 0 "$OUTDIRi/$xpref.mp3"
+    avconv -i "$PASSED" -threads auto -vn -qscale:a 0 "$OUTDIR/$xpref.mp3"
 else
-    echo "$PASSED is not valid"
+    echo ""$PASSED" is not valid"
     exit 1
 fi
 
