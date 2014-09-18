@@ -5,9 +5,9 @@ read PASSED
 
 OUTDIR=/home/misc/Downloads
 
-if [[ -d $PASSED ]]; then
+if [[ -d "$PASSED" ]]; then
     VAR="/home/misc/musicfiles.txt"
-    ls $PASSED/*.{mp4,mkv,avi,flv} 2> /dev/null | sort > $VAR # Collect filenames in the directory
+    ls "$PASSED"/*.{mp4,mkv,avi,flv} 2> /dev/null | sort > $VAR # Collect filenames in the directory
     cat $VAR | while read line; do               # Loop/read the filenames from the file
     INPUT=$(echo ${line})                        # Grab the next filename
     xpath=${INPUT%/*} 
