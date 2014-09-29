@@ -16,11 +16,11 @@ rsync -avhO --log-file="$log" ~/Documents/ /media/backup/home/Documents/ #--dry-
 
 # Language files 
 echo "Language files..." >> $log
-rsync -avhO --log-file="$log" ~/Language/ /media/backup/language/ #--dry-run
+rsync -avhO --log-file="$log" ~/Language/ /media/backup/home/Language/ #--dry-run
 
 # Stacey's files 
 echo "Stacey's files..." >> $log
-rsync -avhO --log-file="$log" ~/Stacey\_documents/ /media/backup/Stacey\_documents/ #--dry-run
+rsync -avhO --log-file="$log" ~/Stacey\_documents/ /media/backup/home/Stacey\_documents/ #--dry-run
 
 # Get some of the .dirs too
 echo "Dot directories..." >> $log
