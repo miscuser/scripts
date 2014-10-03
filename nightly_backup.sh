@@ -14,9 +14,13 @@ echo "Backup starting..." >> $log
 echo "Finance files..." >> $log
 rsync -avhO --log-file="$log" ~/Documents/ /media/backup/home/Documents/ #--dry-run
 
-# Language files 
-echo "Language files..." >> $log
-rsync -avhO --log-file="$log" ~/Language/ /media/backup/home/Language/ #--dry-run
+# Scripts folder 
+echo "Finance files..." >> $log
+rsync -avhO --log-file="$log" --exclude '.git' ~/scripts/ /media/backup/home/scripts/ #--dry-run
+
+# Peronsal bin folder 
+echo "Finance files..." >> $log
+rsync -avhO --log-file="$log" ~/bin/ /media/backup/home/bin/ #--dry-run
 
 # Stacey's files 
 echo "Stacey's files..." >> $log
@@ -33,15 +37,19 @@ rsync -avhO --log-file="$log" ~/.ssh/ /media/backup/home/.ssh #--dry-run
 
 # Music -- ~/Music is a symlink to the external drive
 echo "Music files..." >> $log
-rsync -avhO --log-file="$log" ~/Music/ /media/backup/Music/ #--dry-run
+rsync -avhO --log-file="$log" ~/Music/ /media/backup/media/Music/ #--dry-run
 
 # Video files -- ~/Videos is a symlink to the exteranl drive
 echo "Video files..." >> $log
-rsync -avhO --log-file="$log" ~/Videos/ /media/backup/Videos/ #--dry-run
+rsync -avhO --log-file="$log" ~/Videos/ /media/backup/media/Videos/ #--dry-run
 
 # Pictures
 echo "Pictures..." >> $log
-rsync -avhO --log-file="$log" /media/external/pictures/ /media/backup/pictures/ #--dry-run
+rsync -avhO --log-file="$log" /media/external/pictures/ /media/backup/media/pictures/ #--dry-run
+
+# Language files 
+echo "Language files..." >> $log
+rsync -avhO --log-file="$log" /media/external/Language/ /media/backup/media/Language/ #--dry-run
 
 # Subversion Repository
 # echo "Subversion repository..." >> $log
