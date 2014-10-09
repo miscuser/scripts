@@ -11,15 +11,15 @@ echo "Backup starting..." >> $log
 ##### Files stored on computer
 
 # Documents folder 
-echo "Finance files..." >> $log
+echo "Documents..." >> $log
 rsync -avhO --log-file="$log" ~/Documents/ /media/backup/home/Documents/ #--dry-run
 
 # Scripts folder 
-echo "Finance files..." >> $log
+echo "Scripts..." >> $log
 rsync -avhO --log-file="$log" --exclude '.git' ~/scripts/ /media/backup/home/scripts/ #--dry-run
 
 # Peronsal bin folder 
-echo "Finance files..." >> $log
+echo "Personal bin..." >> $log
 rsync -avhO --log-file="$log" ~/bin/ /media/backup/home/bin/ #--dry-run
 
 # Stacey's files 
