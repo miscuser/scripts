@@ -1,5 +1,4 @@
 Scripts
 =======
-These are scripts for all sorts of different purposes.
-
+These are scripts I use regularly.
 
