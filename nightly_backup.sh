@@ -42,7 +42,7 @@ rsync -avhO --log-file="$log" ~/Music/ /media/backup/media/Music/ #--dry-run
 
 # Video files -- ~/Videos is a symlink to the exteranl drive
 echo "Video files..." >> $log
-rsync -avhO --log-file="$log" ~/Videos/ /media/backup/media/Videos/ #--dry-run
+rsync -avhO --exclude '!Missed' --log-file="$log" ~/Videos/ /media/backup/media/Videos/ #--dry-run
 
 # Pictures
 echo "Pictures..." >> $log
