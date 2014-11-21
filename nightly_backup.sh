@@ -52,17 +52,5 @@ rsync -avhO --log-file="$log" /media/external/pictures/ /media/backup/media/pict
 echo "Language files..." >> $log
 rsync -avhO --log-file="$log" /media/external/Language/ /media/backup/media/Language/ #--dry-run
 
-# Subversion Repository
-# echo "Subversion repository..." >> $log
-# rsync -avhO --log-file="$log" /cygdrive/c/svn_repository/ /cygdrive/i/svn_repository/ #--dry-run
- 
-# Chessbase files
-# echo "ChessBase files..." >> $log
-# rsync -avhO --log-file="$log" /cygdrive/c/Users/main/Documents/ChessBase/ /cygdrive/i/Chess/Chessbase/ #--dry-run
- 
-# Chess - other
-# echo "Chess - other..." >> $log
-# rsync -avhO --log-file="$log" /cygdrive/c/Chess/ /cygdrive/i/Chess/other/ #--dry-run
- 
 echo "Backup complete." >> $log
 
