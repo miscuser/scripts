@@ -16,7 +16,7 @@ rsync -avhO --log-file="$log" ~/Documents/notes/ ~/Dropbox/notes/ #--dry-run
 
 # Anki - copy to Dropbox 
 echo "Anki..." >> $log
-rsync -avhO --log-file="$log" ~/Documents/Anki/ ~/Dropbox/Anki/ #--dry-run
+rsync -avhO --exclude 'backups' --log-file="$log" ~/Documents/Anki/ ~/Dropbox/Anki/ #--dry-run
 
 ##### Files stored on computer
 
