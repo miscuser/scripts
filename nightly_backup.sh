@@ -8,6 +8,16 @@ log=~/logs/nightly_backup_log.txt
 date >> $log
 echo "Backup starting..." >> $log
 
+##### Dropbox backups
+
+# Notes folder - back up to Dropbox 
+echo "Notes..." >> $log
+rsync -avhO --log-file="$log" ~/Documents/notes/ ~/Dropbox/notes/ #--dry-run
+
+# Anki - back up to Dropbox 
+echo "Anki..." >> $log
+rsync -avhO --log-file="$log" ~/Documents/Anki/ ~/Dropbox/Anki/ #--dry-run
+
 ##### Files stored on computer
 
 # Documents folder 
@@ -22,8 +32,8 @@ rsync -avhO --log-file="$log" --exclude '.git' ~/scripts/ /media/backup/home/scr
 echo "Personal bin..." >> $log
 rsync -avhO --log-file="$log" ~/bin/ /media/backup/home/bin/ #--dry-run
 
-# Stacey's files 
-echo "Stacey's files..." >> $log
+# Her files 
+echo "Her files..." >> $log
 rsync -avhO --log-file="$log" ~/Stacey\_documents/ /media/backup/home/Stacey\_documents/ #--dry-run
 
 # Get some of the .dirs too
