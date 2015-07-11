@@ -30,7 +30,7 @@ rsync -avhO --log-file="$log" --exclude '.git' ~/scripts/ /media/backup/home/scr
 
 # Peronsal bin folder 
 echo "Personal bin..." >> $log
-rsync -avhO --log-file="$log" ~/bin/ /media/backup/home/bin/ #--dry-run
+rsync -avhO --log-file="$log" --exclude '.git' ~/bin/ /media/backup/home/bin/ #--dry-run
 
 # Her files 
 echo "Her files..." >> $log
@@ -42,7 +42,7 @@ rsync -avhO --log-file="$log" ~/.fonts/ /media/backup/home/.fonts #--dry-run
 rsync -avhO --log-file="$log" ~/.themes/ /media/backup/home/.themes #--dry-run
 rsync -avhO --log-file="$log" ~/.icons/ /media/backup/home/.icons #--dry-run
 rsync -avhO --log-file="$log" ~/.ssh/ /media/backup/home/.ssh #--dry-run
-rsync -avhO --log-file="$log" ~/.vim/ /media/backup/home/.vim #--dry-run
+rsync -avhO --log-file="$log" --exclude '.git' ~/.vim/ /media/backup/home/.vim #--dry-run
 
 ##### Files stored on external drive
 
