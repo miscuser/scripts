@@ -43,9 +43,9 @@ def update_id3(mp3_file_name, artwork_file_name, artist, album, genre, item_titl
 def main():
     mp3_file_name = sys.argv[1]
     artist = u"2 Broke Girls"
-    album = u"2 Broke Girls - Season 04"
+    album = u"2 Broke Girls - Season 05"
     genre = u"TV"
-    artwork_file_name = "/home/misc/scripts/supporting/2BrokeGirls/Season04.png"
+    artwork_file_name = "/home/misc/scripts/supporting/2BrokeGirls/Season05.png"
     tracknumber = getEpisode(mp3_file_name)
     item_title = getTitle(mp3_file_name)
 
