@@ -84,7 +84,7 @@ def main():
                     urlrow   = r'<a href="' + url + r'">' + surl + r'</a></p>'
                     f.write(urlrow + '\n')
 
-                # Insert ads_on as needed.
+                # Insert ads as needed.
                 if (counter % ad_freq == 0) and ads_on:
                     f.write(ad_text + '\n')
     f.close()
