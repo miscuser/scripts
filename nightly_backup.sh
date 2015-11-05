@@ -12,7 +12,11 @@ echo "Backup starting..." >> $log
 
 # Notes folder - copy to Dropbox 
 echo "Notes..." >> $log
-rsync -avhO --log-file="$log" ~/Documents/notes/ ~/Dropbox/notes/ #--dry-run
+rsync -avhO --log-file="$log" --exclude '.git' ~/Documents/notes/ ~/Dropbox/notes/ #--dry-run
+
+# Wallpaper folder - copy to Dropbox 
+echo "Wallpaper..." >> $log
+rsync -avhO --log-file="$log" ~/Pictures/wallpaper/ ~/Dropbox/wallpaper/ #--dry-run
 
 # Anki - copy to Dropbox 
 echo "Anki..." >> $log
