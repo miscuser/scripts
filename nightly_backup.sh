@@ -50,10 +50,6 @@ rsync -avhO --log-file="$log" --exclude '.git' ~/.vim/ /media/backup/home/.vim #
 
 ##### Files stored on external drive
 
-# iCloud - files are dumped to the source folder when I boot into Windows
-echo "iCloud files..." >> $log
-rsync -avhO --log-file="$log" /media/external/iCloud/ /media/backup/media/iCloud/ #--dry-run
-
 # Music -- ~/Music is a symlink to the external drive
 echo "Music files..." >> $log
 rsync -avhO --log-file="$log" ~/Music/ /media/backup/media/Music/ #--dry-run
