@@ -9,7 +9,7 @@ log_file=~/install_progress_log.txt
 
 # Alias dotfiles in home directory 
 echo -n "Would you like to configure your symlinks (Y/n) => "; read answer
-if [[ $answer = "Y" ]] ; then
+if [[ $answer =~ ^[Yy]$ ]] ; then
     sudo chmod +x ~/dotfiles/install_symlinks.py
     sudo ~/dotfiles/install_symlinks.py
     cd ~
@@ -17,7 +17,7 @@ fi
 
 # Clone other repositories 
 echo -n "Would you like to clone your other repos (Y/n) => "; read answer
-if [[ $answer = "Y" ]] ; then
+if [[ $answer =~ ^[Yy]$ ]] ; then
     git clone git://github.com/miscuser/bin.git ~/bin
     git clone git://github.com/miscuser/colors.git ~/.vim/colors
     # git clone git://github.com/miscuser/scripts.git ~/scripts
@@ -25,13 +25,20 @@ fi
 
 # Prompt to install regularly used packages 
 echo -n "Would you like to install your usual packages (Y/n) => "; read answer
-if [[ $answer = "Y" ]] ; then
+if [[ $answer =~ ^[Yy]$ ]] ; then
 
-    sudo apt-get -y install avidemux
-    if type -p avidemux > /dev/null; then
-        echo "avidemux installed" >> $log_file
+    sudo apt-get -y install vim
+    if type -p vim > /dev/null; then
+        echo "Vim installed" >> $log_file
     else
-        echo "avidemux FAILED TO INSTALL" >> $log_file
+        echo "Vim FAILED TO INSTALL" >> $log_file
+    fi
+
+    sudo apt-get install tmux
+    if type -p tmux > /dev/null; then
+        echo "tmux installed" >> $log_file
+    else
+        echo "tmux FAILED TO INSTALL" >> $log_file
     fi
 
     sudo apt-get install libav-tools
@@ -62,20 +69,6 @@ if [[ $answer = "Y" ]] ; then
         echo "TexLive FAILED TO INSTALL" >> $log_file
     fi
 
-    sudo apt-get -y install lame
-    if type -p lame > /dev/null; then
-        echo "Lame installed" >> $log_file
-    else
-        echo "Lame FAILED TO INSTALL" >> $log_file
-    fi
-
-    sudo apt-get -y install vim
-    if type -p vim > /dev/null; then
-        echo "Vim installed" >> $log_file
-    else
-        echo "Vim FAILED TO INSTALL" >> $log_file
-    fi
-
     sudo apt-get -y install keepassx
     if type -p keepassx > /dev/null; then
         echo "keepassx installed" >> $log_file
@@ -104,22 +97,10 @@ if [[ $answer = "Y" ]] ; then
         echo "Silver Searcher FAILED TO INSTALL" >> $log_file
     fi
 
-    sudo apt-get install tmux
-    if type -p tmux > /dev/null; then
-        echo "tmux installed" >> $log_file
-    else
-        echo "tmux FAILED TO INSTALL" >> $log_file
-    fi
-
-    # Install ffmpeg from different ppa
-    # sudo apt-add-repository ppa:mc3man/trusty-media
-    # sudo apt-get update
-    # sudo apt-add-repository --remove ppa:mc3man/trusty-media
-
 fi
 
 echo -n "Would you like to install Virtualbox (Y/n) => "; read answer
-if [[ $answer = "Y" ]] ; then
+if [[ $answer =~ ^[Yy]$ ]] ; then
     echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib non-free #Virtualbox" > /etc/apt/sources.list.d/virtualbox.list
     wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | apt-key add -
     sudo apt-get -y update
@@ -128,7 +109,7 @@ if [[ $answer = "Y" ]] ; then
 fi
 
 echo -n "Would you like to set additional preferences (Y/n) => "; read answer
-if [[ $answer = "Y" ]] ; then
+if [[ $answer =~ ^[Yy]$ ]] ; then
     # Change folder view to lists
     gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
     gsettings set org.gnome.nautilus.preferences executable-text-activation launch
@@ -136,8 +117,8 @@ if [[ $answer = "Y" ]] ; then
 fi
 
 echo -n "Would you like to swap CAPS and CTRL by inserting "ctrl:swapcaps" (Y/n) => "; read answer
-if [[ $answer = "Y" ]] ; then
-    sudo vim /etc/default/keyboard
+if [[ $answer =~ ^[Yy]$ ]] ; then
+    sudo echo "ctrl:swapcaps" >> /etc/default/keyboard
     sudo dpkg-reconfigure keyboard-configuration
 fi
 
