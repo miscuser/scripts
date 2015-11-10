@@ -112,9 +112,9 @@ if [[ $answer = "Y" ]] ; then
     fi
 
     # Install ffmpeg from different ppa
-    sudo apt-add-repository ppa:mc3man/trusty-media
-    sudo apt-get update
-    sudo apt-add-repository --remove ppa:mc3man/trusty-media
+    # sudo apt-add-repository ppa:mc3man/trusty-media
+    # sudo apt-get update
+    # sudo apt-add-repository --remove ppa:mc3man/trusty-media
 
 fi
 
