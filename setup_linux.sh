@@ -10,8 +10,8 @@ log_file=~/install_progress_log.txt
 # Alias dotfiles in home directory 
 echo -n "Would you like to configure your symlinks (Y/n) => "; read answer
 if [[ $answer = "Y" ]] ; then
-    sudo chmod +x ~/dotfiles/makesymlinks.sh
-    sudo ~/dotfiles/makesymlinks.sh
+    sudo chmod +x ~/dotfiles/install_symlinks.py
+    sudo ~/dotfiles/install_symlinks.py
     cd ~
 fi
 
