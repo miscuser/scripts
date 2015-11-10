@@ -118,18 +118,6 @@ if [[ $answer = "Y" ]] ; then
 
 fi
 
-#echo -n "Would you like to install SickBeard (Y/n) => "; read answer
-#if [[ $answer = "Y" ]] ; then
-#    sudo git clone https://github.com/midgetspy/Sick-Beard/ ~/.sickbeard
-#    wget www.mlinks.net/~cryptor/stuff/init-sickbeard.sh
-#    sudo mv init.sickbeard.sh /etc/init.d/sickbeard    
-#    sudo chmod 755 /etc/init.d/sickbeard
-#    cd /etc/init.d
-#    sudo update-rc.d sickbeard defaults
-#    sudo service sickbeard start
-#    cd ~
-#fi
-
 echo -n "Would you like to install Virtualbox (Y/n) => "; read answer
 if [[ $answer = "Y" ]] ; then
     echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib non-free #Virtualbox" > /etc/apt/sources.list.d/virtualbox.list
