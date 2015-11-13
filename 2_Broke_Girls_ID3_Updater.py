@@ -1,4 +1,5 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python
+
 # Script to save ID3 data to my 2 Broke Girls mp3s.
 #   The album needs to be updated each season
 #   The artwork can also be updated each season
@@ -17,8 +18,8 @@ def getEpisode(filename):
 
 
 def getTitle(filename):
-    t = filename.split('-')        # do this the simple way since I know the naming is correct
-    s = t[2].rstrip('.mp3')        # take off the extension
+    t = filename.split('-')        # Do this the simple way since I know the naming is correct.
+    s = t[2].rstrip('.mp3')        # Strip the extension.
     try:
         s = re.search(' (.+)', s).group(1)
     except AttributeError:
@@ -42,7 +43,8 @@ def update_id3(mp3_file_name, artwork_file_name, artist, album, genre, item_titl
     audiofile.tag.genre = genre                         # genre
     audiofile.tag.save()
 
-def main():
+
+if __name__ == '__main__':
     mp3_file_name = sys.argv[1]
     artist = u"2 Broke Girls"
     album = u"2 Broke Girls - Season 05"
@@ -52,7 +54,3 @@ def main():
     item_title = getTitle(mp3_file_name)
 
     update_id3(mp3_file_name, artwork_file_name, artist, album, genre, item_title, tracknumber)
-
-
-if __name__ == '__main__':
-    main()
