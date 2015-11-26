@@ -28,14 +28,6 @@ rsync -avhO --exclude 'backups' --log-file="$log" ~/Documents/Anki/ ~/Dropbox/An
 echo "Documents..." >> $log
 rsync -avhO --log-file="$log" ~/Documents/ /media/backup/home/Documents/ #--dry-run
 
-# Scripts folder 
-echo "Scripts..." >> $log
-rsync -avhO --log-file="$log" --exclude '.git' ~/scripts/ /media/backup/home/scripts/ #--dry-run
-
-# Peronsal bin folder 
-echo "Personal bin..." >> $log
-rsync -avhO --log-file="$log" --exclude '.git' ~/bin/ /media/backup/home/bin/ #--dry-run
-
 # Her files 
 echo "Her files..." >> $log
 rsync -avhO --log-file="$log" ~/Stacey\_documents/ /media/backup/home/Stacey\_documents/ #--dry-run
