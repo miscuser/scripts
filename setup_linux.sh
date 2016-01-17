@@ -97,6 +97,13 @@ if [[ $answer =~ ^[Yy]$ ]] ; then
         echo "Silver Searcher FAILED TO INSTALL" >> $log_file
     fi
 
+    sudo apt-get install gnome-tweak-tool
+    if type -p gnome-tweak-tool > /dev/null; then
+        echo "gnome-tweak-tool installed" >> $log_file
+    else
+        echo "gnome-tweak-tool FAILED TO INSTALL" >> $log_file
+    fi
+
 fi
 
 echo -n "Would you like to install Virtualbox (Y/n) => "; read answer
@@ -116,11 +123,11 @@ if [[ $answer =~ ^[Yy]$ ]] ; then
 
 fi
 
-echo -n "Would you like to swap CAPS and CTRL by inserting "ctrl:swapcaps" (Y/n) => "; read answer
-if [[ $answer =~ ^[Yy]$ ]] ; then
-    sudo echo "ctrl:swapcaps" >> /etc/default/keyboard
-    sudo dpkg-reconfigure keyboard-configuration
-fi
+# echo -n "Would you like to swap CAPS and CTRL by inserting "ctrl:swapcaps" (Y/n) => "; read answer
+# if [[ $answer =~ ^[Yy]$ ]] ; then
+    # sudo echo "ctrl:swapcaps" >> /etc/default/keyboard
+    # sudo dpkg-reconfigure keyboard-configuration
+# fi
 
 # Display results 
 echo -e "\n====== Summary ======\n"
