@@ -1,10 +1,14 @@
 #!/bin/bash
 
-# New machine installation script
+# New machine installation script.
 # sudo git clone http://www.github.com/miscuser/scripts
 
-# ** add option to install wallpaper
+# NOTES
+# -----
+# * add option to install wallpaper
 
+# Log the results.
+# ----------------
 log_file=~/install_progress_log.txt
 
 # Alias dotfiles in home directory.
@@ -14,11 +18,8 @@ sudo ~/dotfiles/install_symlinks.py
 
 # Clone other repositories.
 # -------------------------
-echo -n "Would you like to clone your other repos (Y/n) => "; read answer
-if [[ $answer =~ ^[Yy]$ ]] ; then
-    git clone git://github.com/miscuser/bin.git ~/bin
-    git clone git://github.com/miscuser/colors.git ~/.vim/colors
-fi
+git clone git://github.com/miscuser/bin.git ~/bin
+git clone git://github.com/miscuser/colors.git ~/.vim/colors
 
 # Install usefull packages. 
 # -------------------------
@@ -111,9 +112,11 @@ if [[ $answer =~ ^[Yy]$ ]] ; then
 fi
 
 # Change folder view to lists.
+# ----------------------------
 gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
 gsettings set org.gnome.nautilus.preferences executable-text-activation launch
 
 # Display results. 
+# ----------------
 echo -e "\n====== Summary ======\n"
 cat $log_file
