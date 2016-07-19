@@ -7,19 +7,21 @@
 
 log_file=~/install_progress_log.txt
 
-# Alias dotfiles in home directory 
+# Alias dotfiles in home directory.
+# ---------------------------------
 sudo chmod +x ~/dotfiles/install_symlinks.py
 sudo ~/dotfiles/install_symlinks.py
 
-# Clone other repositories 
+# Clone other repositories.
+# -------------------------
 echo -n "Would you like to clone your other repos (Y/n) => "; read answer
 if [[ $answer =~ ^[Yy]$ ]] ; then
     git clone git://github.com/miscuser/bin.git ~/bin
     git clone git://github.com/miscuser/colors.git ~/.vim/colors
-    # git clone git://github.com/miscuser/scripts.git ~/scripts
 fi
 
 # Install usefull packages. 
+# -------------------------
 sudo apt-get -y install vim
 if type -p vim > /dev/null; then
     echo "Vim installed" >> $log_file
@@ -97,7 +99,8 @@ else
     echo "gnome-tweak-tool FAILED TO INSTALL" >> $log_file
 fi
 
-
+# Optionally install VirtualBox -- not needed on every machine.
+# -------------------------------------------------------------
 echo -n "Would you like to install Virtualbox (Y/n) => "; read answer
 if [[ $answer =~ ^[Yy]$ ]] ; then
     echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib non-free #Virtualbox" > /etc/apt/sources.list.d/virtualbox.list
@@ -107,10 +110,10 @@ if [[ $answer =~ ^[Yy]$ ]] ; then
     if [ "`grep vboxusers /etc/group|grep $USER`" == "" ] ; then sudo usermod -G vboxusers -a $USER ; fi
 fi
 
-# Change folder view to lists
+# Change folder view to lists.
 gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
 gsettings set org.gnome.nautilus.preferences executable-text-activation launch
 
-# Display results 
+# Display results. 
 echo -e "\n====== Summary ======\n"
 cat $log_file
