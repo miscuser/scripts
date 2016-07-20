@@ -21,8 +21,8 @@ sudo ~/dotfiles/install_symlinks.py
 git clone git://github.com/miscuser/bin.git ~/bin
 git clone git://github.com/miscuser/colors.git ~/.vim/colors
 
-# Install usefull packages. 
-# -------------------------
+# Install useful packages. 
+# ------------------------
 sudo apt-get -y install vim
 if type -p vim > /dev/null; then
     echo "Vim installed" >> $log_file
