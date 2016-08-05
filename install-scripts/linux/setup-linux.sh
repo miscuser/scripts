@@ -19,8 +19,7 @@ git clone git://github.com/miscuser/colors.git ~/.vim/colors
 
 # Alias dotfiles in home directory.
 # ---------------------------------
-sudo chmod +x ~/dotfiles/install_symlinks.py
-sudo ~/dotfiles/install_symlinks.py
+sudo ~/scripts/install-scripts/linux/create-symlinks.sh
 
 # Install useful packages. 
 # ------------------------
