@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # New machine installation script.
-# sudo git clone http://www.github.com/miscuser/scripts
+# sudo git clone http://www.github.com/miscuser/scripts.git ~/scripts
 
 # NOTES
 # -----
@@ -11,15 +11,16 @@
 # ----------------
 log_file=~/install_progress_log.txt
 
+# Clone other repos.
+# ------------------
+git clone git://github.com/miscuser/dotfiles.git ~/dotfiles
+git clone git://github.com/miscuser/bin.git ~/bin
+git clone git://github.com/miscuser/colors.git ~/.vim/colors
+
 # Alias dotfiles in home directory.
 # ---------------------------------
 sudo chmod +x ~/dotfiles/install_symlinks.py
 sudo ~/dotfiles/install_symlinks.py
-
-# Clone other repositories.
-# -------------------------
-git clone git://github.com/miscuser/bin.git ~/bin
-git clone git://github.com/miscuser/colors.git ~/.vim/colors
 
 # Install useful packages. 
 # ------------------------
