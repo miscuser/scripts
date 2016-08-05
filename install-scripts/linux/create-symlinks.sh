@@ -1,70 +1,16 @@
-#!/usr/bin/python
+#!/bin/bash
+# Install symlinks to dotfiles.
+dotfiles_dir=~/dotfiles
 
-from __future__ import print_function
+# Delete existing dot files.
+sudo rm -rf ~/.vimrc > /dev/null 2>&1
+sudo rm -rf ~/.bashrc > /dev/null 2>&1
+sudo rm -rf ~/.tmux.conf > /dev/null 2>&1
+sudo rm -rf ~/.agignore > /dev/null 2>&1
 
-import os
-import sys
-import logging
-
-log = logging.getLogger(__name__)
-ignoredfiles = set((".git", ".gitignore", os.path.basename(__file__)))
-
-
-def installfile(file, installdir):
-    try:
-        os.symlink(os.path.relpath(file, start=installdir),
-                   os.path.join(installdir, file))
-    except:
-        log.exception("Problem creating symbolic link")
-
-
-def do_install(installdir=os.path.expanduser("~"), dryrun=False):
-    if not os.path.isdir(installdir):
-        log.error("Cannot install to {}. It is not a directory".format(installdir))
-        raise RuntimeError("installdir is not directory")
-
-    installs = []
-    installed = []
-    conflicts = []
-    for file in os.listdir('.'):
-        if file.startswith("."):
-            if file in ignoredfiles:
-                continue
-            try:
-                if os.path.samefile(file, os.path.join(installdir, file)):
-                    installed.append(file)
-                    log.info("{} is already installed".format(file))
-                else:
-                    log.warning("Conflicting file {}".format(file))
-                    conflicts.append(file)
-            except OSError:  # FileNotFoundError: OSError instead for python 2 compatibility
-                if not dryrun:
-                    installfile(file, installdir)
-                installs.append(file)
-                print("{} installed".format(file))
-
-    return dict(installs=installs, installed=installed, conflicts=conflicts)
-
-
-if __name__ == '__main__':
-    import argparse
-    parser = argparse.ArgumentParser()
-    defaultinstall = os.path.expanduser("~")
-    parser.add_argument("installpath",
-                        help="Path to install symbolic links (default:{})".format(defaultinstall),
-                        default=defaultinstall, nargs='?', type=os.path.expanduser)
-    parser.add_argument("--log", help="log level", type=int)
-    parser.add_argument("-d", "--dryrun", help="Perform dry run, don't actually do anything",
-                        action="store_true")  # This setting defaults the value to false unless on command line.
-    args = parser.parse_args()
-
-    logging.basicConfig(level=args.log)
-    try:
-        results = do_install(installdir=args.installpath, dryrun=args.dryrun)
-    except:
-        errors = True
-    else:
-        errors = False
-
-    if errors or results['conflicts']:
-        sys.exit(1)
+# Create symlinks in home folder.
+#==============
+ln -sf $dotfiles_dir/.vimrc ~/.vimrc
+ln -sf $dotfiles_dir/.bashrc ~/.bashrc
+ln -sf $dotfiles_dir/.tmux-conf ~/.tmux-conf
+ln -sf $dotfiles_dir/.agignore ~/.agignore
