@@ -1,4 +1,0 @@
-# min hour day_of_month month day_of_week   command
-
-0 3 * * * ./scripts/nightly_backup.sh
-
