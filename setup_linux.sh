@@ -100,6 +100,10 @@ else
     echo "gnome-tweak-tool FAILED TO INSTALL" >> $log_file
 fi
 
+# Get youtube-dl
+sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+sudo chmod a+rx /usr/local/bin/youtube-dl
+
 # Optionally install VirtualBox -- not needed on every machine.
 # -------------------------------------------------------------
 echo -n "Would you like to install Virtualbox (Y/n) => "; read answer
