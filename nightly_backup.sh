@@ -18,10 +18,6 @@ rsync -avhO --log-file="$log" --exclude '.git' ~/Documents/notes/ ~/Dropbox/note
 echo "Wallpaper..." >> $log
 rsync -avhO --log-file="$log" ~/Pictures/wallpaper/ ~/Dropbox/wallpaper/ #--dry-run
 
-# Anki - copy to Dropbox 
-echo "Anki..." >> $log
-rsync -avhO --exclude 'backups' --log-file="$log" ~/Documents/Anki/ ~/Dropbox/Anki/ #--dry-run
-
 ##### Files stored on computer
 
 # Documents folder 
