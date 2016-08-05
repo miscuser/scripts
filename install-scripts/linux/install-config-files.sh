@@ -5,4 +5,4 @@
 
 # Install youtube-dl config file.
 sudo rm -rf /etc/youtube-dl.conf > /dev/null 2>&1
-sudo ln -sf ~/scripts/config/linux/youtube-dl.conf /etc/youtube-dl.conf
+sudo ln -sf ~/scripts/config-files/linux/youtube-dl.conf /etc/youtube-dl.conf
