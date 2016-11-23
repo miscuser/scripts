@@ -104,17 +104,6 @@ fi
 sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 sudo chmod a+rx /usr/local/bin/youtube-dl
 
-# Optionally install VirtualBox -- not needed on every machine.
-# -------------------------------------------------------------
-echo -n "Would you like to install Virtualbox (Y/n) => "; read answer
-if [[ $answer =~ ^[Yy]$ ]] ; then
-    echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib non-free #Virtualbox" > /etc/apt/sources.list.d/virtualbox.list
-    wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | apt-key add -
-    sudo apt-get -y update
-    sudo apt-get -y install virtualbox-4.3
-    if [ "`grep vboxusers /etc/group|grep $USER`" == "" ] ; then sudo usermod -G vboxusers -a $USER ; fi
-fi
-
 # Change folder view to lists.
 # ----------------------------
 gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
