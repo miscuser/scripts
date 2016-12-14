@@ -16,3 +16,4 @@ brew install tmux
 brew install the_silver_searcher
 brew install ack
 brew install vim
+brew install libav
