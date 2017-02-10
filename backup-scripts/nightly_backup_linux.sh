@@ -35,8 +35,8 @@ echo "Backup starting..." >> $log
 ##### Files stored on external drive
 
 # Music -- ~/Music is a symlink to the external drive
-# echo "Music files..." >> $log
-rsync -avhO --log-file="$log" ~/Music/ /media/backup/media/Music/ #--dry-run
+echo "Music files..." >> $log
+rsync -avhO --exclude 'Automatically Add to iTunes' --log-file="$log" ~/Music/ /media/backup/media/Music/ #--dry-run
 
 # Video files -- ~/Videos is a symlink to the exteranl drive
 echo "Video files..." >> $log
