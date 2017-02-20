@@ -36,11 +36,11 @@ echo "Backup starting..." >> $log
 
 # Music -- ~/Music is a symlink to the external drive
 echo "Music files..." >> $log
-rsync -avhO --exclude 'Automatically Add to iTunes' --log-file="$log" ~/Music/ /media/backup/media/Music/ #--dry-run
+rsync -avhO --exclude-from='exclude_music.txt' --log-file="$log" ~/Music/ /media/backup/media/Music/ #--dry-run
 
 # Video files -- ~/Videos is a symlink to the exteranl drive
 echo "Video files..." >> $log
-rsync -avhO --exclude 'Temp' --exclude '!Missed' --exclude "Learning" --exclude 'Never Watched' --exclude 'Fastlane' --log-file="$log" ~/Videos/ /media/backup/media/Videos/ #--dry-run
+rsync -avhO --exclude-from='exclude_video.txt' --log-file="$log" ~/Videos/ /media/backup/media/Videos/ #--dry-run
 
 # Pictures
 # echo "Pictures..." >> $log
