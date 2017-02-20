@@ -8,23 +8,13 @@ log=~/logs/nightly_backup_log.txt
 date >> $log
 echo "Backup starting..." >> $log
 
-##### Dropbox backups
-
-# Notes folder - copy to Dropbox 
-# echo "Notes..." >> $log
-# rsync -avhO --log-file="$log" --exclude '.git' ~/Documents/notes/ ~/Dropbox/notes/ #--dry-run
-
-# Wallpaper folder - copy to Dropbox 
-# echo "Wallpaper..." >> $log
-# rsync -avhO --log-file="$log" ~/Pictures/wallpaper/ ~/Dropbox/wallpaper/ #--dry-run
-
 ##### Files stored on computer
 
 # Documents folder 
 # echo "Documents..." >> $log
 # rsync -avhO --log-file="$log" ~/Documents/ /media/backup/home/Documents/ #--dry-run
 
-# Her files 
+# The woman's files. 
 # echo "Her files..." >> $log
 # rsync -avhO --log-file="$log" ~/Stacey\_documents/ /media/backup/home/Stacey\_documents/ #--dry-run
 
@@ -45,14 +35,6 @@ rsync -avhO --exclude-from='exclude_video.txt' --log-file="$log" ~/Videos/ /medi
 # Pictures
 # echo "Pictures..." >> $log
 # rsync -avhO --log-file="$log" /media/external/pictures/ /media/backup/media/pictures/ #--dry-run
-
-# Language files 
-# echo "Language files..." >> $log
-# rsync -avhO --log-file="$log" /media/external/Language/ /media/backup/media/Language/ #--dry-run
-
-# Audio - Learning 
-# echo "Audio - Learning files..." >> $log
-# rsync -avhO --log-file="$log" /media/external/Audio\ -\ Learning/ /media/backup/media/Audio\ -\ Learning/ #--dry-run
 
 echo "Backup complete." >> $log
 
