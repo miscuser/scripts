@@ -37,4 +37,4 @@ rsync -avhO --exclude-from='/home/misc/scripts/backup-scripts/exclude_video.txt'
 # rsync -avhO --log-file="$log" /media/external/pictures/ /media/backup/media/pictures/ #--dry-run
 
 echo "\nBackup complete." | tee -a $log
-
+echo "\n------------------------------------" | tee -a $log
