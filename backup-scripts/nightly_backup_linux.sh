@@ -6,7 +6,7 @@
 log=~/logs/nightly_backup_log.txt
 
 date >> $log
-echo "Backup starting..." >> $log
+echo "Backup starting..." | tee -a $log
 
 ##### Files stored on computer
 
@@ -25,16 +25,16 @@ echo "Backup starting..." >> $log
 ##### Files stored on external drive
 
 # Music -- ~/Music is a symlink to the external drive
-echo "Music files..." >> $log
+echo "\n--- Music files\n" | tee -a $log
 rsync -avhO --exclude-from='/home/misc/scripts/backup-scripts/exclude_music.txt' --log-file="$log" ~/Music/ /media/backup/media/Music/ #--dry-run
 
 # Video files -- ~/Videos is a symlink to the exteranl drive
-echo "Video files..." >> $log
+echo "\n--- Video files\n" | tee -a $log
 rsync -avhO --exclude-from='/home/misc/scripts/backup-scripts/exclude_video.txt' --log-file="$log" ~/Videos/ /media/backup/media/Videos/ #--dry-run
 
 # Pictures
 # echo "Pictures..." >> $log
 # rsync -avhO --log-file="$log" /media/external/pictures/ /media/backup/media/pictures/ #--dry-run
 
-echo "Backup complete." >> $log
+echo "\nBackup complete." | tee -a $log
 
