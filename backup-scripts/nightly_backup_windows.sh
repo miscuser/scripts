@@ -11,9 +11,9 @@ echo "Backup starting..." | tee -a $log
 
 ##### Files stored on computer
 
-# Documents folder 
-# echo "Documents..." >> $log
-# rsync -avhO --log-file="$log" ~/Documents/ /media/backup/home/Documents/ #--dry-run
+# Home folder 
+echo "\n--- Windows home folder\n" >> $log
+rsync -avhO --log-file="$log" /cygdrive/c/home/ $backupdrive/home/ #--dry-run
 
 # The woman's files. 
 # echo "Her files..." >> $log
