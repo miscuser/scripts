@@ -3,7 +3,7 @@
 # Bash script to back up files
 # Runs nightly around 3am
 
-log='/home/misc/Dropbox/logs/nightly/nightly_backup_log.txt'
+log='/home/misc/Dropbox/logs/nightly/nightly_backup_linux.txt'
 
 date >> $log
 echo "Backup starting..." | tee -a $log
