@@ -26,11 +26,11 @@ echo "Backup starting..." | tee -a $log
 
 # Music -- ~/Music is a symlink to the external drive
 echo "\n--- Music files\n" | tee -a $log
-rsync -avhO --exclude-from='/home/misc/scripts/backup-scripts/exclude_music.txt' --log-file="$log" ~/Music/ /media/backup/media/Music/ #--dry-run
+rsync -avhO --exclude-from='/home/misc/scripts/backup-scripts/exclude_music.txt' --log-file="$log" ~/Music/ /media/backup/media/Music/ | grep -E -v '/$' #--dry-run
 
 # Video files -- ~/Videos is a symlink to the exteranl drive
 echo "\n--- Video files\n" | tee -a $log
-rsync -avhO --exclude-from='/home/misc/scripts/backup-scripts/exclude_video.txt' --log-file="$log" ~/Videos/ /media/backup/media/Videos/ #--dry-run
+rsync -avhO --exclude-from='/home/misc/scripts/backup-scripts/exclude_video.txt' --log-file="$log" ~/Videos/ /media/backup/media/Videos/ | grep -E -v '/$' #--dry-run
 
 # Pictures
 # echo "Pictures..." >> $log
