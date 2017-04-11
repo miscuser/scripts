@@ -5,8 +5,6 @@ Elementary
 Fastlane
 MacGyver(2016)
 Never Watched
-NCIS
-NCIS Los Angeles 
-NCIS New Orleans
+NCIS*
 Scorpion
 The Young and the Restless
