@@ -27,11 +27,11 @@ rsync -avhO --log-file="$log" /cygdrive/c/home/ $backupdrive/home/ #--dry-run
 
 # Music -- ~/Music is a symlink to the external drive
 printf "\n--- Music files\n" | tee -a $log
-rsync -avhO --exclude-from='/home/main/scripts/backup-scripts/exclude_music.txt' --log-file="$log" ~/Music/ $backupdrive/media/Music/  | grep -E -v '/$' #--dry-run
+rsync -avhO --exclude-from='exclude_music.txt' --log-file="$log" ~/Music/ $backupdrive/media/Music/  | grep -E -v '/$' #--dry-run
 
 # Video files -- ~/Videos is a symlink to the exteranl drive
 printf "\n--- Video files\n" | tee -a $log
-rsync -avhO --exclude-from='/home/main/scripts/backup-scripts/exclude_video.txt' --log-file="$log" ~/Videos/ $backupdrive/media/Videos/  | grep -E -v '/$' #--dry-run
+rsync -avhO --exclude-from='exclude_video.txt' --log-file="$log" ~/Videos/ $backupdrive/media/Videos/  | grep -E -v '/$' #--dry-run
 
 # Pictures
 # echo "Pictures..." >> $log
