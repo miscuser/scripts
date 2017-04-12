@@ -11,16 +11,8 @@ echo "Backup starting..." | tee -a $log
 ##### Files stored on computer
 
 # Documents folder 
-# echo "Documents..." >> $log
+# echo "Documents..." | tee -a $log
 # rsync -avhO --log-file="$log" ~/Documents/ /media/backup/home/Documents/ #--dry-run
-
-# The woman's files. 
-# echo "Her files..." >> $log
-# rsync -avhO --log-file="$log" ~/Stacey\_documents/ /media/backup/home/Stacey\_documents/ #--dry-run
-
-# Get some of the .dirs too
-# echo "Dot directories..." >> $log
-# rsync -avhO --log-file="$log" --exclude '.git' ~/.vim/ /media/backup/home/.vim #--dry-run
 
 ##### Files stored on external drive
 
