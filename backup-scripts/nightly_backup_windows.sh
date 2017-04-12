@@ -10,7 +10,7 @@ printf "Backup starting...\n" | tee -a $log
 
 ##### Files stored on computer.
 # Home folder 
-printf "\n--- Windows home folder\n" >> $log
+printf "\n--- Windows home folder\n" | tee -a $log
 rsync -avhO --log-file="$log" /cygdrive/c/home/ $backupdrive/home/ #--dry-run
 
 ##### Files stored on external drive.
