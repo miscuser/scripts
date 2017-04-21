@@ -23,7 +23,8 @@ eval $cmd \
      $c_drive/apps \
      $c_drive/installs \
      $c_drive/bin \
-     /cygdrive/i/win
+     /cygdrive/i/win \
+     | grep -E -v '/$'
 
 ##### Media files stored on external drive.
 printf "\n--- External (media) files\n" | tee -a $log
@@ -31,7 +32,8 @@ eval $cmd \
     --exclude-from='/home/main/scripts/backup-scripts/exclude_video.txt' \
     --exclude-from='/home/main/scripts/backup-scripts/exclude_music.txt' \
     --exclude-from='/home/main/scripts/backup-scripts/exclude_junk.txt' \
-    $media_drive $backup_drive/media/
+    $media_drive $backup_drive/media/ \
+    | grep -E -v '/$'
 
 printf "\nBackup complete." | tee -a $log
 printf "\n------------------------------------" | tee -a $log
