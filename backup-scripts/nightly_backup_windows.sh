@@ -18,7 +18,7 @@ printf "Backup starting...\n" | tee -a $log
 
 # Misc. Windows folders.
 printf "\n--- Various Windows folders\n" | tee -a $log
-$cmd \
+eval $cmd \
      $c_drive/home \
      $c_drive/apps \
      $c_drive/installs \
@@ -27,7 +27,7 @@ $cmd \
 
 ##### Media files stored on external drive.
 printf "\n--- External (media) files\n" | tee -a $log
-$cmd \
+eval $cmd \
     --exclude-from='/home/main/scripts/backup-scripts/exclude_video.txt' \
     --exclude-from='/home/main/scripts/backup-scripts/exclude_music.txt' \
     --exclude-from='/home/main/scripts/backup-scripts/exclude_junk.txt' \
