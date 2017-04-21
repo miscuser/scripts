@@ -21,11 +21,10 @@ printf "Backup starting...\n" | tee -a $log
 
 ##### Media files stored on external drive.
 printf "\n--- External (media) files\n" | tee -a $log
-rsync -av \
+rsync -av --log-file="$log" \
     --exclude-from='/home/main/scripts/backup-scripts/exclude_video.txt' \
     --exclude-from='/home/main/scripts/backup-scripts/exclude_music.txt' \
     --exclude-from='/home/main/scripts/backup-scripts/exclude_junk.txt' \
-    --log-file="$log" \
     $media_drive $backup_drive/media/ \
     | grep -E -v '/$' 
 
