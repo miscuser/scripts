@@ -12,16 +12,16 @@ printf "Backup starting...\n" | tee -a $log
 
 ##### Files stored on computer.
 printf "\n--- Windows home folder\n" | tee -a $log
-rsync -avhO --log-file="$log" $localhome $backupdrive/win/home/ #--dry-run
+rsync -avhO --log-file="$log" $localhome $backupdrive/win/home/ | grep -E -v '/$' #--dry-run
 
 printf "\n--- Portable apps\n" | tee -a $log
-rsync -avhO --log-file="$log" /cygdrive/c/apps/ $backupdrive/win/apps #--dry-run
+rsync -avhO --log-file="$log" /cygdrive/c/apps/ $backupdrive/win/apps | grep -E -v '/$' #--dry-run
 
 printf "\n--- Installation packages\n" | tee -a $log
-rsync -avhO --log-file="$log" /cygdrive/c/installs/ $backupdrive/win/installs #--dry-run
+rsync -avhO --log-file="$log" /cygdrive/c/installs/ $backupdrive/win/installs | grep -E -v '/$' #--dry-run
 
 printf "\n--- Windows bin folder\n" | tee -a $log
-rsync -avhO --log-file="$log" /cygdrive/c/bin/ $backupdrive/win/bin #--dry-run
+rsync -avhO --log-file="$log" /cygdrive/c/bin/ $backupdrive/win/bin | grep -E -v '/$' #--dry-run
 
 ##### Media files stored on external drive.
 printf "\n--- External (media) files\n" | tee -a $log
