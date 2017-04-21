@@ -3,28 +3,34 @@
 # Backup from Windows machine. 
 
 log='/cygdrive/c/Dropbox/logs/nightly/nightly_backup_windows.txt'
+localhome='/cygdrive/c/home/'
 backupdrive='/cygdrive/i/'
+mediadrive='/cygdrive/j/'
 
 date >> $log
 printf "Backup starting...\n" | tee -a $log
 
 ##### Files stored on computer.
-# Home folder 
 printf "\n--- Windows home folder\n" | tee -a $log
-rsync -avhO --log-file="$log" /cygdrive/c/home/ $backupdrive/home/ #--dry-run
+rsync -avhO --log-file="$log" $localhome $backupdrive/win/home/ #--dry-run
 
-##### Files stored on external drive.
-# Music -- ~/Music is a symlink to the external drive.
-printf "\n--- Music files\n" | tee -a $log
-rsync -avhO --exclude-from='/home/main/scripts/backup-scripts/exclude_music.txt' --log-file="$log" ~/Music/ $backupdrive/media/Music/  | grep -E -v '/$' #--dry-run
+printf "\n--- Portable apps\n" | tee -a $log
+rsync -avhO --log-file="$log" /cygdrive/c/apps/ $backupdrive/win/apps #--dry-run
 
-# Video files -- ~/Videos is a symlink to the exteranl drive.
-printf "\n--- Video files\n" | tee -a $log
-rsync -avhO --exclude-from='/home/main/scripts/backup-scripts/exclude_video.txt' --log-file="$log" ~/Videos/ $backupdrive/media/Videos/  | grep -E -v '/$' #--dry-run
+printf "\n--- Installation packages\n" | tee -a $log
+rsync -avhO --log-file="$log" /cygdrive/c/installs/ $backupdrive/win/installs #--dry-run
 
-# Pictures
-# echo "Pictures..." >> $log
-# rsync -avhO --log-file="$log" /media/external/pictures/ /media/backup/media/pictures/ #--dry-run
+printf "\n--- Windows bin folder\n" | tee -a $log
+rsync -avhO --log-file="$log" /cygdrive/c/bin/ $backupdrive/win/bin #--dry-run
+
+##### Media files stored on external drive.
+printf "\n--- External (media) files\n" | tee -a $log
+rsync -avhO \
+    --exclude-from='/home/main/scripts/backup-scripts/exclude_video.txt' \
+    --exclude-from='/home/main/scripts/backup-scripts/exclude_music.txt' \
+    --exclude-from='/home/main/scripts/backup-scripts/exclude_junk.txt' \
+    --log-file="$log" \
+    $mediadrive $backupdrive/media/ | grep -E -v '/$' #--dry-run
 
 printf "\nBackup complete." | tee -a $log
 printf "\n------------------------------------" | tee -a $log
