@@ -4,7 +4,7 @@
 
 # Command lines with and without the dry-run option.
 cmd='rsync -avh --log-file="$log"'
-# cmd='rsync -avh --dry-run --log-file="$log"'
+# cmd='rsync -avh --log-file="$log" --dry-run'
 
 # Reference folders and files.
 log='/cygdrive/c/Dropbox/logs/nightly/nightly_backup_windows.txt'
