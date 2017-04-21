@@ -26,7 +26,7 @@ eval $cmd \
      /cygdrive/i/win \
      | grep -E -v '/$'
 
-##### Media files stored on external drive.
+# Media files stored on external drive.
 printf "\n--- External (media) files\n" | tee -a $log
 eval $cmd \
     --exclude-from='/home/main/scripts/backup-scripts/exclude_video.txt' \
