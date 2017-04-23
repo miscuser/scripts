@@ -23,6 +23,7 @@ eval $cmd \
      $c_drive/apps \
      $c_drive/installs \
      $c_drive/bin \
+     $c_drive/static \
      /cygdrive/i/win \
      | grep -E -v '/$'
 
