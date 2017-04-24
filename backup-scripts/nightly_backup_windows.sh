@@ -24,6 +24,7 @@ eval $cmd \
      $c_drive/installs \
      $c_drive/bin \
      $c_drive/static \
+     $c_drive/shortcuts \
      /cygdrive/i/win \
      | grep -E -v '/$'
 
