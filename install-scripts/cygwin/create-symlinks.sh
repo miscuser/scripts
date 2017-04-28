@@ -3,10 +3,10 @@
 dotfiles_dir=~/dotfiles
 
 # Delete existing dot files.
-sudo rm -rf ~/.vimrc > /dev/null 2>&1
-sudo rm -rf ~/.bashrc > /dev/null 2>&1
-sudo rm -rf ~/.tmux.conf > /dev/null 2>&1
-sudo rm -rf ~/.agignore > /dev/null 2>&1
+rm -rf ~/.vimrc > /dev/null 2>&1
+rm -rf ~/.bashrc > /dev/null 2>&1
+rm -rf ~/.tmux.conf > /dev/null 2>&1
+rm -rf ~/.agignore > /dev/null 2>&1
 
 # Create symlinks in home folder.
 #==============
