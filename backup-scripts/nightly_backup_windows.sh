@@ -19,12 +19,14 @@ printf "Backup starting...\n" | tee -a $log
 # Misc. Windows folders.
 printf "\n--- Various Windows folders\n" | tee -a $log
 eval $cmd \
+    --exclude-from='/home/main/scripts/backup-scripts/exclude_junk.txt' \
      $c_drive/home \
      $c_drive/apps \
      $c_drive/installs \
      $c_drive/bin \
      $c_drive/static \
      $c_drive/shortcuts \
+     $c_drive/cygwin64 \
      /cygdrive/i/win \
      | grep -E -v '/$'
 
