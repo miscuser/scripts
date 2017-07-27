@@ -12,5 +12,5 @@ rm -rf ~/.agignore > /dev/null 2>&1
 #==============
 ln -sf $dotfiles_dir/.vimrc ~/.vimrc
 ln -sf $dotfiles_dir/.bashrc ~/.bashrc
-ln -sf $dotfiles_dir/.tmux-conf ~/.tmux-conf
+ln -sf $dotfiles_dir/.tmux.conf ~/.tmux.conf
 ln -sf $dotfiles_dir/.agignore ~/.agignore
