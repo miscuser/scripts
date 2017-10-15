@@ -3,3 +3,4 @@ System Volume Information
 .netrc
 cron.log
 nightly_backup_windows.txt
+.git
