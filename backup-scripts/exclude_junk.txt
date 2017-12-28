@@ -4,3 +4,4 @@ System Volume Information
 cron.log
 nightly_backup_windows.txt
 .git
+.dropbox.cache
