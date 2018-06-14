@@ -9,7 +9,7 @@ cmd='rsync -avh --log-file="$log"'
 # Reference folders and files.
 log='/cygdrive/c/Dropbox/logs/nightly/nightly_backup_windows.txt'
 backup_drive='/cygdrive/i/'
-media_drive='/cygdrive/j/'
+media_drive='/cygdrive/z/'
 c_drive='/cygdrive/c'
 
 # Logging info. 
