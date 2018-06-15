@@ -5,3 +5,7 @@ cron.log
 nightly_backup_windows.txt
 .git
 .dropbox.cache
+Thumbs.db
+.iTunes Preferences.plist
+.HFS+*
+.DS_Store
