@@ -27,6 +27,7 @@ eval $cmd \
      $c_drive/static \
      $c_drive/shortcuts \
      $c_drive/Dropbox \
+     $c_drive/users/main/'Google\ Drive' \
      /cygdrive/i/win \
      | grep -E -v '/$'
 
