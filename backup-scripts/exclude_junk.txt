@@ -9,3 +9,5 @@ Thumbs.db
 .iTunes Preferences.plist
 .HFS+*
 .DS_Store
+*.driveupload
+*.sublime_session
