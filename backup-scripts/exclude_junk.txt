@@ -12,3 +12,6 @@ Thumbs.db
 *.driveupload
 *.sublime_session
 *IrfanView*
+*.Spotlight-V100*
+*.fseventsd*
+*Google Drive*
