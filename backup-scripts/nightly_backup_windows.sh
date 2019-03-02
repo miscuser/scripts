@@ -18,12 +18,12 @@ date >> $log
 # Misc. local folders.
 eval $cmd \
     --exclude-from='/home/main/scripts/backup-scripts/exclude_junk.txt' \
-     $c_drive/home \
-     $c_drive/apps \
-     $c_drive/installs \
-     $c_drive/bin \
-     $c_drive/static \
-     $c_drive/shortcuts \
+#     $c_drive/home \
+#     $c_drive/apps \
+#     $c_drive/installs \
+#     $c_drive/bin \
+#     $c_drive/static \
+#     $c_drive/shortcuts \
      $c_drive/Users/main/Dropbox \
      /cygdrive/i/win \
      | grep -E -v '/$'
