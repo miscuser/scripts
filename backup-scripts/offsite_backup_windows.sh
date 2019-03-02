@@ -7,13 +7,13 @@ cmd='rsync -avh'
 # cmd='rsync -avh --dry-run'
 
 # Reference folders and files.
-backup_drive='/cygdrive/i/'
-offsite_drive='/cygdrive/z/'
+source='/cygdrive/z/'
+offsite='/cygdrive/j/'
 
-printf "\n--- Copying from BACKUP to OFFSITE\n"
+printf "\n--- Copying from MEDIA to OFFSITE\n"
 eval $cmd \
     --exclude-from='/home/main/scripts/backup-scripts/exclude_offsite.txt' \
     --exclude-from='/home/main/scripts/backup-scripts/exclude_junk.txt' \
-     $backup_drive \
-     $offsite_drive \
+     $source \
+     $offsite \
      | grep -E -v '/$'
